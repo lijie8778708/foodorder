@@ -1,19 +1,21 @@
 package com.jie.repository;
 
 import com.jie.entity.Order;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 public interface OrderRepository {
 
-    public void save(Order order);
+    @PostMapping("/order/save")
+    public void save(@RequestBody Order order);
     public List<Order> findAllByUid(long uid, int index, int limit);
     public int countByUid(long uid);
     public List<Order> findAllByState(int state, int index, int limit);
     public int countByState(int state);
-    public void updateState(long id, long aid, int state);
+
+    @PutMapping("/order/updateState/{id}/{state}/{aid}")
+    public void updateState(@PathVariable("id") long id, @PathVariable("state") long state, @PathVariable("aid") long aid);
 
     @DeleteMapping("/deleteByMid/{mid}")
     public void deleteByMid(@PathVariable long mid);

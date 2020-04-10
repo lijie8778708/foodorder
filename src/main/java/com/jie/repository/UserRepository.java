@@ -11,4 +11,5 @@ public interface UserRepository {
     public int count();
     public void save(@RequestBody User user);
     public void deleteById(long id);
+    public User login(String username, String password);
 }

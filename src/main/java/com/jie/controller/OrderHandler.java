@@ -1,16 +1,13 @@
 package com.jie.controller;
 
-import com.jie.entity.OrderVO;
-import com.jie.entity.User;
+import com.jie.entity.*;
 import com.jie.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/order")
@@ -42,4 +39,23 @@ public class OrderHandler {
         return orderVO;
     }
 
+    @GetMapping("/save/{mid}")
+    public String save(@PathVariable("mid") long mid, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        Order order = new Order();
+        Menu menu = new Menu();
+        menu.setId(mid);
+        order.setUser(user);
+        order.setMenu(menu);
+        order.setDate(new Date());
+        orderRepository.save(order);
+        return "redirect:/account/redirect/order";
+    }
+
+    @GetMapping("/updateState/{id}/{state}")
+    public String updateState(@PathVariable("id") long id,@PathVariable("state") long state, HttpSession session){
+        Admin admin = (Admin) session.getAttribute("admin");
+        orderRepository.updateState(id, state, admin.getId());
+        return "redirect:/account/redirect/order_handler";
+    }
 }
