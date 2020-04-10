@@ -2,16 +2,29 @@
 
 A simple online ordering system used springboot to build backend service and render on thymeleaf template html file
 
-Environment
+##Environment
 
-Tool | Version
-JKD  | 1.8
-IDE  | 2019
-Maven | 3.6
-MySQL | 8.0.11
-Layui | 2.5.6
-Srpingboot | 2.07
+Tool  Version
+-
+####JKD  1.8
 
-Running
+####IDE  2019
 
-Copy and Past 
+####Maven  3.6
+
+####MySQL  8.0.11
+
+####Layui  2.5.6
+
+####Springboot  2.07
+
+
+####Running
+
+run SQL file 
+
+execute MainApplication.java
+
+
+##Project overview
+
