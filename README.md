@@ -2,7 +2,7 @@
 
 A simple online ordering system used springboot to build backend service and render on thymeleaf template html file
 
-##Environment
+## Environment
 
 Tool  Version
 -
@@ -27,5 +27,10 @@ execute MainApplication.java
 
 
 ## Project overview
-[avatar]{/png/Picture1.png}
-
+![avatar](png/Picture1.png)
+![avatar](png/Picture2.png)
+![avatar](png/Picture3.png)
+![avatar](png/Picture4.png)
+![avatar](png/Picture5.png)
+![avatar](png/Picture6.png)
+![avatar](png/Picture7.png)
